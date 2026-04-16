@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>女束攵 · Vintage女装店 · 下浩里 · 设计提案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+SC:wght@300;400;500&display=swap');
+
+  :root {
+    --sand: #d4c4a8;
+    --cream: #f0ebe0;
+    --rust: #8b6f5c;
+    --silver: #b8b8b8;
+    --dark: #2a2520;
+    --green-patina: #7a9e8a;
+    --rose: #c4736a;
+    --bg: #1a1714;
+    --bg-alt: #16140f;
+    --card: #1d1b18;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Noto Serif SC', serif;
+    line-height: 1.8;
+  }
+
+  /* ── 导航 ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,23,20,0.94);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212,196,168,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 52px;
+  }
+  .nav-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px; font-weight: 500; color: var(--cream);
+    letter-spacing: 0.15em; opacity: 0.9;
+  }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 11px; letter-spacing: 0.12em; color: var(--sand);
+    opacity: 0.5; text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .main-wrap { padding-top: 52px; }
+
+  /* ── 封面 ── */
+  .cover {
+    min-height: 70vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(160deg, #1a1714 0%, #2d2520 40%, #1a1f1a 100%);
+    padding: 80px 40px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(180,160,120,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 70%, rgba(122,158,138,0.06) 0%, transparent 60%);
+  }
+  .cover-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(56px, 10vw, 110px); font-weight: 300;
+    color: var(--cream); letter-spacing: 0.2em; line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .cover-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(13px, 1.4vw, 16px); font-style: italic;
+    color: var(--sand); letter-spacing: 0.3em; opacity: 0.6;
+    margin-bottom: 2rem;
+  }
+  .cover-tag {
+    display: inline-flex; gap: 1.5rem; font-size: 11px;
+    letter-spacing: 0.15em; color: var(--rust); opacity: 0.7;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .divider-ornament { color: var(--sand); opacity: 0.25; font-size: 18px; letter-spacing: 0.5em; margin: 1rem 0; }
+
+  /* ── 通用 ── */
+  .section { max-width: 1200px; margin: 0 auto; padding: 60px 32px; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px; letter-spacing: 0.5em; text-transform: uppercase;
+    color: var(--rust); opacity: 0.7; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(26px, 3.5vw, 40px); font-weight: 400;
+    color: var(--cream); letter-spacing: 0.08em; margin-bottom: 0.3rem;
+  }
+  .section-title .en {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-weight: 300; font-size: 0.6em; opacity: 0.45;
+    letter-spacing: 0.04em; display: block; margin-top: 2px;
+  }
+  .section-body {
+    font-size: 14px; color: rgba(240,235,224,0.6); max-width: 640px;
+    margin-bottom: 2rem; line-height: 2;
+  }
+  hr.thin { border: none; border-top: 1px solid rgba(212,196,168,0.1); margin: 0; }
+  .bg-alt { background: var(--bg-alt); }
+
+  /* ── 分类头 ── */
+  .cat-header {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 8px; flex-wrap: wrap;
+  }
+  .cat-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 24px; font-weight: 400; color: var(--cream); letter-spacing: 0.1em;
+  }
+  .cat-title-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; font-style: italic; color: var(--sand); opacity: 0.45;
+  }
+  .cat-desc {
+    font-size: 13px; color: rgba(240,235,224,0.45); line-height: 2;
+    margin-bottom: 24px; max-width: 600px;
+  }
+
+  /* ── 图片网格 ── */
+  .img-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 3px; margin-bottom: 48px;
+  }
+  .img-cell {
+    position: relative; overflow: hidden;
+    background: #13100d; cursor: pointer;
+  }
+  .img-cell img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.85; transition: transform 0.5s ease, opacity 0.3s;
+  }
+  .img-cell:hover img { transform: scale(1.06); opacity: 1; }
+  .img-cell .img-idx {
+    position: absolute; top: 6px; left: 6px;
+    font-size: 9px; letter-spacing: 0.1em;
+    color: var(--cream); opacity: 0; transition: opacity 0.2s;
+    background: rgba(0,0,0,0.5); padding: 1px 6px;
+  }
+  .img-cell:hover .img-idx { opacity: 0.8; }
+
+  /* ── Pinterest banner ── */
+  .pinterest-banner {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    padding: 20px; border: 1px solid rgba(212,196,168,0.1);
+    background: rgba(212,196,168,0.03); margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .pinterest-banner span { font-size: 13px; color: rgba(240,235,224,0.55); }
+  .pinterest-banner a {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 20px; background: rgba(212,196,168,0.1);
+    border: 1px solid rgba(212,196,168,0.2); color: var(--sand);
+    text-decoration: none; font-size: 12px; letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+  .pinterest-banner a:hover { background: rgba(212,196,168,0.18); border-color: rgba(212,196,168,0.35); }
+
+  /* ── 资源链接 ── */
+  .resource-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px; background: rgba(212,196,168,0.08);
+  }
+  .resource-card {
+    background: var(--card); padding: 24px 22px;
+    border-left: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  a.resource-card:hover { border-left-color: var(--rust); background: #221f1a; }
+  .rc-type { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); opacity: 0.6; margin-bottom: 6px; }
+  .rc-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream); margin-bottom: 4px; }
+  .rc-url { font-size: 10px; color: var(--sand); opacity: 0.4; margin-bottom: 10px; font-style: italic; word-break: break-all; }
+  a.resource-card:hover .rc-url { opacity: 0.7; text-decoration: underline; }
+  .rc-desc { font-size: 12px; color: rgba(240,235,224,0.45); line-height: 1.8; }
+  .rc-tag {
+    display: inline-block; margin-top: 10px; font-size: 9px; letter-spacing: 0.12em;
+    padding: 2px 8px; border: 1px solid rgba(212,196,168,0.18); color: var(--sand);
+    opacity: 0.5; border-radius: 1px;
+  }
+
+  /* ── 门头方案 ── */
+  .scheme-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    background: rgba(212,196,168,0.06); margin-bottom: 40px;
+  }
+  @media (max-width: 700px) { .scheme-wrap { grid-template-columns: 1fr; } }
+  .scheme-card { background: var(--bg); padding: 32px 24px; }
+  .scheme-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: rgba(212,196,168,0.06); line-height: 1; margin-bottom: -12px; }
+  .scheme-name { font-family: 'Noto Serif SC', serif; font-size: 20px; color: var(--cream); letter-spacing: 0.08em; margin-bottom: 3px; }
+  .scheme-tag { font-family: 'Cormorant Garamond', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-patina); opacity: 0.7; margin-bottom: 14px; display: block; }
+  .scheme-body { font-size: 12px; color: rgba(240,235,224,0.45); line-height: 2; margin-bottom: 16px; }
+  .scheme-list { list-style: none; font-size: 12px; color: rgba(240,235,224,0.5); line-height: 2.1; }
+  .scheme-list li::before { content: '— '; color: var(--rust); opacity: 0.5; }
+
+  /* ── 色板 ── */
+  .palette { display: flex; gap: 0; height: 70px; margin-bottom: 12px; overflow: hidden; border-radius: 2px; }
+  .palette-swatch { flex: 1; position: relative; cursor: default; }
+  .palette-swatch:hover .swatch-label { opacity: 1; }
+  .swatch-label { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: 0.08em; opacity: 0; transition: opacity 0.2s; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  .palette-names { display: flex; font-size: 10px; color: rgba(240,235,224,0.3); letter-spacing: 0.08em; gap: 0; }
+  .palette-names span { flex: 1; text-align: center; }
+
+  /* ── 自流平 ── */
+  .floor-card { background: var(--card); border-left: 2px solid var(--green-patina); padding: 24px 22px; margin-bottom: 2px; }
+  .floor-title { font-family: 'Noto Serif SC', serif; font-size: 16px; color: var(--cream); letter-spacing: 0.06em; margin-bottom: 8px; }
+  .floor-body { font-size: 12px; color: rgba(240,235,224,0.45); line-height: 2; }
+
+  /* ── highlight ── */
+  .highlight-box {
+    border: 1px solid rgba(212,196,168,0.1); padding: 20px 24px; margin: 20px 0;
+    font-size: 13px; color: rgba(240,235,224,0.55); line-height: 2; font-style: italic;
+  }
+  .highlight-box strong { color: var(--sand); font-style: normal; }
+
+  footer {
+    text-align: center; padding: 48px 20px; font-size: 10px;
+    letter-spacing: 0.3em; color: rgba(212,196,168,0.18);
+  }
+
+  /* ── 大图预览 ── */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.93);
+    display: none; align-items: center; justify-content: center;
+    cursor: zoom-out; padding: 32px;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img { max-width: 92%; max-height: 92vh; object-fit: contain; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">女束攵</div>
+  <ul class="nav-links">
+    <li><a href="#entrance">门头</a></li>
+    <li><a href="#lighting">灯具</a></li>
+    <li><a href="#furniture">家具</a></li>
+    <li><a href="#resources">资源</a></li>
+    <li><a href="#floor">地面</a></li>
+  </ul>
+</nav>
+
+<div class="main-wrap">
+
+<!-- 封面 -->
+<div class="cover">
+  <div class="divider-ornament">✦ ✦ ✦</div>
+  <h1 class="cover-title">女束攵</h1>
+  <div class="cover-sub">Nü Shu Wen · Vintage Womenswear · Xia Hao Li</div>
+  <div class="cover-tag">
+    <span>Dark Romantic</span><span>·</span>
+    <span>Industrial Ruin</span><span>·</span>
+    <span>Vintage Feminine</span>
+  </div>
+</div>
+
+<!-- Pinterest入口 -->
+<div class="section" style="padding-bottom:0">
+  <div class="pinterest-banner">
+    <span>📷 所有参考图裁剪自你的 Pinterest 画板</span>
+    <a href="https://uk.pinterest.com/emmmmmm6/vintage%E8%A3%85%E4%BF%AE/" target="_blank" rel="noopener">↗ 查看完整画板</a>
+  </div>
+</div>
+
+<!-- ==================== 门头 ==================== -->
+<div id="entrance" class="section">
+  <div class="section-label">01 / Entrance</div>
+  <h2 class="section-title">门头<span class="en">Storefront &amp; Entrance</span></h2>
+  <p class="section-body">
+    下浩里的建筑本身就是最好的背景。门头原则：<strong style="color:var(--sand)">不破坏，只叠加</strong>——用布料、光线、植物、手工装置「占领」入口。
+  </p>
+
+  <div class="img-grid" id="grid-entrance">
+    <!-- 门头参考图由JS动态生成 -->
+  </div>
+
+  <div class="scheme-wrap">
+    <div class="scheme-card">
+      <div class="scheme-num">A</div>
+      <div class="scheme-name">布幔入口</div>
+      <span class="scheme-tag">Draped Entrance · 最强视觉冲击</span>
+      <div class="scheme-body">大量布料（米白棉麻/金属银涤纶）从门顶垂落堆叠，钩编帘作内外分隔，地面散落暗红玫瑰。</div>
+      <ul class="scheme-list">
+        <li>顶部隐藏轨道，布料可随季节更换</li>
+        <li>手工钩编帘定制图案</li>
+        <li>铸铁复古壁灯，黄暖光</li>
+        <li>细铜线手写招牌，不做大牌匾</li>
+      </ul>
+    </div>
+    <div class="scheme-card">
+      <div class="scheme-num">B</div>
+      <div class="scheme-name">裸墙招牌</div>
+      <span class="scheme-tag">Bare Wall Sign · 最低成本 · 高质感</span>
+      <div class="scheme-body">保留原始墙面甚至主动剥落涂料，只做极小激光切割黄铜字母招牌，入口用枯枝野蔷薇装点。</div>
+      <ul class="scheme-list">
+        <li>字体：Cormorant Garamond / Bodoni MT 斜体</li>
+        <li>材质：做旧黄铜或氧化铁板字母</li>
+        <li>尺寸不超过60cm宽</li>
+        <li>老陶罐/铁桶插干燥植物</li>
+      </ul>
+    </div>
+    <div class="scheme-card">
+      <div class="scheme-num">C</div>
+      <div class="scheme-name">装置橱窗</div>
+      <span class="scheme-tag">Window Installation · 适合有展示面</span>
+      <div class="scheme-body">老裁衣架+银色金属布+斑驳镜子+LED蜡烛，构成可拍照的微型废墟场景，每2-3周换主题。</div>
+      <ul class="scheme-list">
+        <li>核心道具：老木裁衣架</li>
+        <li>单点射灯打在布料上，制造强烈阴影</li>
+        <li>自流平向橱窗延伸，视觉连续</li>
+      </ul>
+    </div>
+    <div class="scheme-card">
+      <div class="scheme-num">D</div>
+      <div class="scheme-name">下浩里在地化</div>
+      <span class="scheme-tag">Site-specific · 利用场地原始特质</span>
+      <div class="scheme-body">不改建只「嫁接」：石板路画石灰、门洞缠铜丝挂旧钥匙、地面投影店名、苔藓蕨类自然生长。</div>
+      <ul class="scheme-list">
+        <li>保留原木门，加装复古铜把手</li>
+        <li>门前石板路白色石灰粉地面装置</li>
+        <li>夜间地面投影，成本低效果强</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>重庆气候提示：</strong>常年潮湿多雾是天然滤镜。布料长期潮湿会加速做旧感，但需选用防霉处理的棉麻或涤纶混纺。门头布幔每季清洗一次，保持「刻意的脏」和「真实的脏」之间的平衡。
+  </div>
+</div>
+
+<hr class="thin">
+
+<!-- ==================== 灯具 ==================== -->
+<div id="lighting" class="bg-alt">
+<div class="section">
+  <div class="section-label">02 / Lighting</div>
+  <h2 class="section-title">灯具<span class="en">Chandeliers &amp; Wall Sconces</span></h2>
+  <p class="section-body">
+    灯是废墟空间中唯一的「暖」——冷灰墙面上的一盏黄铜壁灯、混凝土天花下的一串水晶吊灯，冷暖对抗就是女束攵的气质核心。
+  </p>
+
+  <!-- 水晶吊灯 -->
+  <div style="margin-bottom:48px">
+    <div class="cat-header">
+      <span class="cat-title">水晶吊灯</span>
+      <span class="cat-title-en">Crystal Chandelier</span>
+    </div>
+    <p class="cat-desc">废墟空间里的水晶吊灯要「破」——做旧铜框架、不完整的水晶挂件、故意缺少几颗的款式。完美是敌人，残缺才是灵魂。</p>
+    <div class="img-grid" id="grid-chandelier"></div>
+    <div class="highlight-box">
+      <strong>选购建议：</strong>闲鱼/淘宝搜「法式复古水晶吊灯 做旧」「旧货市场吊灯」。实体推荐：重庆中兴路旧货市场、成都送仙桥旧货市场。价格区间：200-1500元。
+    </div>
+  </div>
+
+  <hr class="thin" style="margin:32px 0">
+
+  <!-- 壁灯 -->
+  <div>
+    <div class="cat-header">
+      <span class="cat-title">壁灯</span>
+      <span class="cat-title-en">Wall Sconce</span>
+    </div>
+    <p class="cat-desc">壁灯是门头和走廊的「叙事工具」——铸铁、黄铜、做旧银，每盏都是一个老故事。建议混搭不同款式，不要统一。</p>
+    <div class="img-grid" id="grid-walllight"></div>
+    <div class="highlight-box">
+      <strong>灯泡选择：</strong>全部使用2700K-3000K暖白灯泡（爱迪生灯泡/钨丝灯），拒绝冷白光。门头壁灯建议LED仿钨丝灯泡，省电且保留视觉温度。
+    </div>
+  </div>
+</div>
+</div>
+
+<hr class="thin">
+
+<!-- ==================== 家具（木质）==================== -->
+<div id="furniture" class="section">
+  <div class="section-label">03 / Furniture</div>
+  <h2 class="section-title">家具 · 木质<span class="en">Wooden Furniture &amp; Display</span></h2>
+  <p class="section-body">
+    木质家具不是「买」的，是「找」的。老木头的裂纹、虫眼、色差都是免费的设计。不要统一，每件都应该是独立的故事。
+  </p>
+
+  <div class="img-grid" id="grid-furniture"></div>
+
+  <div class="highlight-box">
+    <strong>旧货采购地图：</strong><br>
+    🪑 重庆：中兴路旧货市场（南岸区）、杨家坪旧货市场<br>
+    🪑 成都：送仙桥旧货市场（青羊区，可顺路考察买手店）<br>
+    🪑 线上：闲鱼搜「老木头家具 自提」「药柜 旧」「裁缝架 老木头」<br>
+    🪑 佛山：顺德乐从旧货区（量大价低，适合批量采购）
+  </div>
+</div>
+
+<hr class="thin">
+
+<!-- ==================== 参考资源 ==================== -->
+<div id="resources" class="bg-alt">
+<div class="section">
+  <div class="section-label">04 / Resources</div>
+  <h2 class="section-title">参考资源<span class="en">Reference Websites &amp; Inspiration</span></h2>
+  <p class="section-body">所有网站均可点击跳转。</p>
+
+  <div class="section-label" style="margin-bottom:12px">📷 你的 Pinterest 画板</div>
+  <div class="resource-grid">
+    <a class="resource-card" href="https://uk.pinterest.com/emmmmmm6/vintage%E8%A3%85%E4%BF%AE/" target="_blank" rel="noopener">
+      <div class="rc-type">我的画板</div>
+      <div class="rc-name">Vintage装修 ↗</div>
+      <div class="rc-url">pinterest.com/emmmmmm6</div>
+      <div class="rc-desc">你亲自整理的Pinterest画板，最核心的灵感来源。</div>
+      <span class="rc-tag">核心参考</span>
+    </a>
+  </div>
+
+  <hr class="thin" style="margin:32px 0">
+
+  <div class="section-label" style="margin-bottom:12px">🖼️ 图片素材平台</div>
+  <div class="resource-grid">
+    <a class="resource-card" href="https://www.pinterest.com" target="_blank" rel="noopener">
+      <div class="rc-type">图片素材</div>
+      <div class="rc-name">Pinterest ↗</div>
+      <div class="rc-url">pinterest.com</div>
+      <div class="rc-desc">最全vintage/dark romantic视觉库。搜 dark feminine boutique / ruincore interior / vintage store drape</div>
+      <span class="rc-tag">首要推荐</span>
+    </a>
+    <a class="resource-card" href="https://www.are.na" target="_blank" rel="noopener">
+      <div class="rc-type">图片素材</div>
+      <div class="rc-name">Are.na ↗</div>
+      <div class="rc-url">are.na</div>
+      <div class="rc-desc">设计师用灵感收藏平台，比Pinterest更小众纯粹。搜 ruincore / dark vintage interior</div>
+      <span class="rc-tag">强烈推荐</span>
+    </a>
+    <a class="resource-card" href="https://www.xiaohongshu.com" target="_blank" rel="noopener">
+      <div class="rc-type">图片素材</div>
+      <div class="rc-name">小红书 ↗</div>
+      <div class="rc-url">xiaohongshu.com</div>
+      <div class="rc-desc">国内最集中vintage买手店陈列参考。搜：暗黑系买手店 / 废墟风女装 / vintage店铺陈列</div>
+      <span class="rc-tag">中文首选</span>
+    </a>
+    <a class="resource-card" href="https://www.behance.net" target="_blank" rel="noopener">
+      <div class="rc-type">品牌设计</div>
+      <div class="rc-name">Behance ↗</div>
+      <div class="rc-url">behance.net</div>
+      <div class="rc-desc">品牌VI、空间概念方案。搜 vintage boutique branding / dark feminine store design</div>
+      <span class="rc-tag">品牌设计</span>
+    </a>
+    <a class="resource-card" href="https://www.tumblr.com" target="_blank" rel="noopener">
+      <div class="rc-type">氛围参考</div>
+      <div class="rc-name">Tumblr ↗</div>
+      <div class="rc-url">tumblr.com</div>
+      <div class="rc-desc">暗黑浪漫美学发源地。Tag: #dark romanticism #ruincore</div>
+      <span class="rc-tag">氛围参考</span>
+    </a>
+    <a class="resource-card" href="https://unsplash.com" target="_blank" rel="noopener">
+      <div class="rc-type">免费素材</div>
+      <div class="rc-name">Unsplash ↗</div>
+      <div class="rc-url">unsplash.com</div>
+      <div class="rc-desc">免费高清素材。搜 abandoned building fabric / vintage textile drape</div>
+      <span class="rc-tag">免费素材</span>
+    </a>
+  </div>
+
+  <hr class="thin" style="margin:32px 0">
+
+  <div class="section-label" style="margin-bottom:12px">🏪 同类标杆店铺</div>
+  <div class="resource-grid">
+    <a class="resource-card" href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%9F%E6%98%9F%E6%94%B6%E8%97%8F%E5%AE%B6" target="_blank" rel="noopener">
+      <div class="rc-type">标杆 · 国内</div>
+      <div class="rc-name">星星收藏家 ↗</div>
+      <div class="rc-url">小红书搜索</div>
+      <div class="rc-desc">手工温度+废墟陈列+透明布帘，与女束攵调性高度吻合。</div>
+      <span class="rc-tag">直接对标</span>
+    </a>
+    <a class="resource-card" href="https://www.xiaohongshu.com/search_result?keyword=Between%20Worlds%20%E4%B9%B0%E6%89%8B%E5%BA%97" target="_blank" rel="noopener">
+      <div class="rc-type">标杆 · 国内</div>
+      <div class="rc-name">Between Worlds ↗</div>
+      <div class="rc-url">小红书/抖音</div>
+      <div class="rc-desc">上海vintage买手店，混凝土墙面+欧式老物件，暗色调陈列。</div>
+      <span class="rc-tag">运营参考</span>
+    </a>
+    <a class="resource-card" href="https://www.doverstreetmarket.com" target="_blank" rel="noopener">
+      <div class="rc-type">标杆 · 国际</div>
+      <div class="rc-name">Dover Street Market ↗</div>
+      <div class="rc-url">doverstreetmarket.com</div>
+      <div class="rc-desc">空间即装置的极致实践。布料堆叠、废材美学陈列逻辑。</div>
+      <span class="rc-tag">高端参照</span>
+    </a>
+    <a class="resource-card" href="https://pirajean-lees.com" target="_blank" rel="noopener">
+      <div class="rc-type">设计事务所</div>
+      <div class="rc-name">Pirajean Lees ↗</div>
+      <div class="rc-url">pirajean-lees.com</div>
+      <div class="rc-desc">暗色系独立零售空间设计，项目案例可直接用作提案参考。</div>
+      <span class="rc-tag">空间设计</span>
+    </a>
+  </div>
+
+  <hr class="thin" style="margin:32px 0">
+
+  <div class="section-label" style="margin-bottom:12px">🎨 视觉风格账号</div>
+  <div class="resource-grid">
+    <a class="resource-card" href="https://www.xiaohongshu.com/search_result?keyword=hanna%E7%9A%84%E8%A7%86%E8%A7%89%E5%AE%9E%E9%AA%8C%E5%AE%A4" target="_blank" rel="noopener">
+      <div class="rc-type">小红书</div>
+      <div class="rc-name">hanna的视觉实验室 ↗</div>
+      <div class="rc-url">小红书</div>
+      <div class="rc-desc">参考图原始来源账号，长期产出同调性内容。</div>
+      <span class="rc-tag">即刻关注</span>
+    </a>
+    <a class="resource-card" href="https://www.instagram.com/studiomaterialise/" target="_blank" rel="noopener">
+      <div class="rc-type">Instagram</div>
+      <div class="rc-name">@studiomaterialise ↗</div>
+      <div class="rc-url">instagram.com</div>
+      <div class="rc-desc">质感空间摄影，废墟+布料+老物件商业场景。</div>
+      <span class="rc-tag">氛围摄影</span>
+    </a>
+  </div>
+</div>
+</div>
+
+<hr class="thin">
+
+<!-- ==================== 色板 ==================== -->
+<div class="section">
+  <div class="section-label">05 / Color Palette</div>
+  <h2 class="section-title">主色盘<span class="en">Core Color System</span></h2>
+  <div class="palette">
+    <div class="palette-swatch" style="background:#2a2520"><span class="swatch-label">#2A2520</span></div>
+    <div class="palette-swatch" style="background:#4a3f35"><span class="swatch-label">#4A3F35</span></div>
+    <div class="palette-swatch" style="background:#8b7355"><span class="swatch-label">#8B7355</span></div>
+    <div class="palette-swatch" style="background:#c4b49a"><span class="swatch-label">#C4B49A</span></div>
+    <div class="palette-swatch" style="background:#e8e0d0"><span class="swatch-label">#E8E0D0</span></div>
+    <div class="palette-swatch" style="background:#b0b8b4"><span class="swatch-label">#B0B8B4</span></div>
+    <div class="palette-swatch" style="background:#7a9e8a"><span class="swatch-label">#7A9E8A</span></div>
+    <div class="palette-swatch" style="background:#c4736a"><span class="swatch-label">#C4736A</span></div>
+  </div>
+  <div class="palette-names">
+    <span>废墟深黑</span><span>焦土棕</span><span>锈沙</span><span>沙米</span><span>旧白</span><span>冷银</span><span>铜绿</span><span>玫瑰红</span>
+  </div>
+</div>
+
+<hr class="thin">
+
+<!-- ==================== 自流平 ==================== -->
+<div id="floor" class="bg-alt">
+<div class="section">
+  <div class="section-label">06 / Floor</div>
+  <h2 class="section-title">自流平地面<span class="en">Self-Leveling Concrete Floor</span></h2>
+  <div class="floor-card">
+    <div class="floor-title">水泥自流平（推荐）</div>
+    <div class="floor-body">
+      <strong style="color:var(--sand)">颜色：</strong>灰白色 或 浅沙灰<br>
+      <strong style="color:var(--sand)">表面：</strong>哑光封闭漆<br>
+      <strong style="color:var(--sand)">费用：</strong>重庆约80-150元/㎡
+    </div>
+  </div>
+  <div class="floor-card" style="border-left-color:var(--rust)">
+    <div class="floor-title">微水泥涂料（精品方案）</div>
+    <div class="floor-body">比自流平更精细，可做色彩渐变。品牌：Topciment（西班牙）、德莱特。约180-300元/㎡。</div>
+  </div>
+</div>
+</div>
+
+<footer>女束攵 · 下浩里 · 重庆 · 设计提案参考册<br><span style="opacity:0.4">Nü Shu Wen · 2026</span></footer>
+
+</div><!-- main-wrap -->
+
+<!-- 大图预览 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="大图预览">
+</div>
+
+<script>
+// === 分类配置 ===
+// 每个分类包含的图片文件名（从Pinterest截图裁剪）
+const CATEGORIES = {
+  entrance: [
+    's1_c0_r0','s1_c0_r1','s1_c1_r0','s1_c2_r0','s1_c2_r1',
+    's1_c3_r1','s1_c3_r2','s1_c4_r0','s1_c4_r1','s1_c6_r1',
+    's2_c1_r0','s2_c2_r0','s2_c3_r2','s2_c4_r0','s2_c5_r1','s2_c6_r0',
+    's3_c0_r1','s3_c1_r1','s3_c1_r3','s3_c2_r0','s3_c2_r2','s3_c3_r1',
+    's3_c4_r2','s3_c5_r2','s3_c6_r1','s3_c6_r2'
+  ],
+  chandelier: [
+    's1_c0_r2','s1_c1_r2','s1_c2_r2','s1_c3_r0',
+    's2_c0_r2','s2_c0_r3','s2_c1_r1','s2_c1_r2','s2_c2_r1','s2_c2_r2',
+    's2_c3_r0','s2_c3_r1','s2_c4_r2','s2_c5_r2','s2_c5_r3','s2_c5_r4','s2_c6_r1','s2_c6_r2',
+    's3_c0_r0','s3_c1_r0','s3_c5_r0'
+  ],
+  walllight: [
+    's2_c0_r1','s2_c1_r3','s2_c2_r3','s2_c4_r1','s2_c4_r3','s2_c5_r0',
+    's3_c2_r3','s3_c3_r3','s3_c4_r0','s3_c4_r3'
+  ],
+  furniture: [
+    's1_c1_r1','s1_c4_r2','s1_c5_r0','s1_c5_r1','s1_c5_r2','s1_c6_r0','s1_c6_r2',
+    's2_c0_r0','s2_c1_r0','s2_c4_r0',
+    's3_c0_r2','s3_c0_r3','s3_c1_r2','s3_c2_r1','s3_c3_r0',
+    's3_c4_r1','s3_c5_r1','s3_c5_r3','s3_c6_r0'
+  ]
+};
+
+const BASE = 'pinterest_tiles/';
+
+function buildGrid(containerId, imageList) {
+  const grid = document.getElementById(containerId);
+  if (!grid) return;
+  imageList.forEach(function(name, idx) {
+    const cell = document.createElement('div');
+    cell.className = 'img-cell';
+    cell.onclick = function() { openLightbox(img.src); };
+    const img = document.createElement('img');
+    img.src = BASE + name + '.jpg';
+    img.loading = 'lazy';
+    img.alt = name;
+    const label = document.createElement('div');
+    label.className = 'img-idx';
+    label.textContent = '#' + (idx + 1);
+    cell.appendChild(img);
+    cell.appendChild(label);
+    grid.appendChild(cell);
+  });
+}
+
+// Build all grids
+buildGrid('grid-entrance', CATEGORIES.entrance);
+buildGrid('grid-chandelier', CATEGORIES.chandelier);
+buildGrid('grid-walllight', CATEGORIES.walllight);
+buildGrid('grid-furniture', CATEGORIES.furniture);
+
+// Lightbox
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
